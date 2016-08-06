@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.duastone</groupId>
+  <artifactId>stalactite</artifactId>
+  <packaging>war</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>stalactite Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <com.alibaba.fastjson.version>1.2.6</com.alibaba.fastjson.version>
+        <org.apache.commons.io.version>2.4</org.apache.commons.io.version>
+        <org.springframework.version>4.2.4.RELEASE</org.springframework.version>
+        <org.junit.version>4.11</org.junit.version>
+        <org.springframework.data.mongodb.version>1.7.1.RELEASE</org.springframework.data.mongodb.version>
+    </properties>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>stalactite</finalName>
+  </build>
+</project>
