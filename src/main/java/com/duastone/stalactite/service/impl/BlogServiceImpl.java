@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import com.duastone.stalactite.exception.ValueErrorException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -58,19 +59,19 @@ public class BlogServiceImpl implements BlogService{
 	@Override
 	public void updateBlog(Blog blog) throws Exception{
 		if(blog == null){
-			throw new Exception("Blog is null.");
+			throw new ValueErrorException("Blog is null.");
 		}
 		
 		if(StringUtils.isBlank(blog.getId())){
-			throw new Exception("Blog id is null.");
+			throw new ValueErrorException("Blog id is null.");
 		}
 		
 		if(StringUtils.isBlank(blog.getTitle())){
-			throw new Exception("Blog title is null.");
+			throw new ValueErrorException("Blog title is null.");
 		}
 		
 		if(StringUtils.isBlank(blog.getContent())){
-			throw new Exception("Blog content is null.");
+			throw new ValueErrorException("Blog content is null.");
 		}
 		blog.setLastUpdateDate(new Date());
 		blogAction.updateContent(blog);

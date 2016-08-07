@@ -47,8 +47,7 @@ public class BlogActionAchieve extends BaseActionAchieve<Blog> implements BlogAc
 
 	@Override
 	public long totalCount() {
-		long count = mongoTemplate.getCollection(mongoTemplate.getCollectionName(Blog.class)).count();
-		return count;
+        return mongoTemplate.getCollection(mongoTemplate.getCollectionName(Blog.class)).count();
 	}
 
 }

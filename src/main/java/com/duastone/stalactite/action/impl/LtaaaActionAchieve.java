@@ -35,7 +35,6 @@ public class LtaaaActionAchieve extends BaseActionAchieve<LtaaaTitle> implements
 		Query query = new Query(criteria);
 		query.skip(pager.getPage() * pager.getSize());
 		query.limit(pager.getSize());
-		List<LtaaaTitle> list = mongoTemplate.find(query, LtaaaTitle.class, "ltaaa_titles");
-		return list;
+        return mongoTemplate.find(query, LtaaaTitle.class, "ltaaa_titles");
 	}
 }

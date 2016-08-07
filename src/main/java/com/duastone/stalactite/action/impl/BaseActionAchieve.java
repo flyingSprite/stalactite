@@ -2,7 +2,6 @@ package com.duastone.stalactite.action.impl;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +9,8 @@ import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
 
 import com.duastone.stalactite.action.BaseAction;
+
+import javax.annotation.Resource;
 
 /** 
  * @author Quesle 
@@ -19,7 +20,7 @@ import com.duastone.stalactite.action.BaseAction;
 @Repository("baseAction")
 public class BaseActionAchieve<T> implements BaseAction<T>{
 	
-	@Autowired
+	@Resource
 	public MongoTemplate mongoTemplate;
 	
 	@Override

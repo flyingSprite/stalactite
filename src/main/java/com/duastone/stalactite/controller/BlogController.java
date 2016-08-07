@@ -26,23 +26,40 @@ public class BlogController {
 	@Resource
 	private BlogService blogService;
 
-	// Post a blog to server.
+    /**
+     * Add blog entity
+     * @param blog
+     * @return
+     * @throws Exception
+     */
 	@RequestMapping(
             value="/blog",
             method=RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE)
 	public Blog post(@RequestBody Blog blog) throws Exception{
+        // blogService provide saveBlog() service
     	blogService.saveBlog(blog);
 		return blog;
 	}
-	
+
+    /**
+     * Modify blog entity
+     * @param blog
+     * @return
+     * @throws Exception
+     */
 	@RequestMapping(
             value="/blog",
             method=RequestMethod.PUT,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-	public Blog put(@RequestBody Blog blog) throws Exception{
-		blogService.updateBlog(blog);
-		return blog;
+	public Blog put(@RequestBody Blog blog){
+        // blogService provide saveBlog() service
+        try {
+            blogService.updateBlog(blog);
+        } catch (Exception e) {
+            return null;
+        }
+ 		return blog;
 	}
 	
 	@RequestMapping(value="/blog/info", method=RequestMethod.GET)

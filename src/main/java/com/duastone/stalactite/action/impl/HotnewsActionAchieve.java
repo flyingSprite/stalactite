@@ -20,17 +20,15 @@ public class HotnewsActionAchieve extends BaseActionAchieve<Hotnews> implements 
 
 	@Override
 	public List<Hotnews> findNewestList(long newest) {
-		List<Hotnews> hotnews = mongoTemplate.find(
+        return mongoTemplate.find(
 			query(where("amendTimestamp").is(newest)),
 			Hotnews.class
 		);
-		return hotnews;
 	}
 	
 	@Override
 	public int total() {
-		long count = this.mongoTemplate.getCollection("hotnews").count();
-		return (int) count;
-	} 
+        return (int) this.mongoTemplate.getCollection("hotnews").count();
+	}
 
 }
