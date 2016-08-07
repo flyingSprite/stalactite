@@ -4,10 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 import com.duastone.stalactite.entity.Record;
 import com.duastone.stalactite.service.RecordService;
@@ -24,14 +22,20 @@ public class RecordController {
 	private RecordService recordService;
 	
 	@ResponseBody
-	@RequestMapping(value="/record", method=RequestMethod.POST)
-	public Record post( Record record) throws Exception{
+	@RequestMapping(
+            value="/record",
+            method=RequestMethod.POST,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+	public Record post(@RequestBody Record record) throws Exception{
 		recordService.saveRecord(record);
 		return record;
 	}
 	
-	@RequestMapping(value="/record", method=RequestMethod.PUT)
-	public Record put(Record record, String title){
+	@RequestMapping(
+            value="/record",
+            method=RequestMethod.PUT,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+	public Record put(@RequestBody Record record, String title){
 		return record;
 	}
 	
@@ -42,4 +46,3 @@ public class RecordController {
 		return records;
 	}
 }
-

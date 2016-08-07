@@ -2,6 +2,7 @@ package com.duastone.stalactite.controller;
 
 import javax.annotation.Resource;
 
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +24,7 @@ public class MessageController {
 
 	// Post a blog to server.
 	@RequestMapping(value="/message", method=RequestMethod.POST)
-	public Message post(Message message, boolean isUpdate) throws Exception{
+	public Message post(@RequestBody Message message, boolean isUpdate) throws Exception{
 		System.out.println(isUpdate);
 		if (isUpdate) {
 			this.put(message);
@@ -34,7 +35,7 @@ public class MessageController {
 	}
 	
 	@RequestMapping(value="/message", method=RequestMethod.PUT)
-	public Message put(Message message) throws Exception{
+	public Message put(@RequestBody Message message) throws Exception{
 		messageService.updateMessage(message);
 		return message;
 	}
