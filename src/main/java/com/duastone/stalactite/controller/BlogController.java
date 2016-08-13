@@ -57,7 +57,7 @@ public class BlogController {
         try {
             blogService.updateBlog(blog);
         } catch (Exception e) {
-            return null;
+            return new Blog();
         }
  		return blog;
 	}

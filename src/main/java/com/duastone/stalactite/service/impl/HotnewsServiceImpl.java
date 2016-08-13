@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.duastone.stalactite.action.CrawlAction;
@@ -18,21 +19,27 @@ import com.duastone.stalactite.service.HotnewsService;
  */
 @Service("hotnewsService")
 public class HotnewsServiceImpl implements HotnewsService{
-	
+
+    // Crawl mongodb interface
 	@Resource
 	private CrawlAction crawlAction;
-	
+
+    // Hotnews mongodb interface
 	@Resource
 	private HotnewsAction hotnewsAction;
-	
+
+    // Get count of hotnews
 	@Override
 	public int totalHotnewsService() {
 		return hotnewsAction.total();
 	}
 
+    // Get the newest hotnews list.
 	@Override
 	public List<Hotnews> hotnewsList() {
+        // Get newest timestamp
 		long newest = crawlAction.getNewestCrawl();
+        // Get newest hotnews list.
 		List<Hotnews> hotnews = hotnewsAction.findNewestList(newest);
 		return hotnews;
 	}
