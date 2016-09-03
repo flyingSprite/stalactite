@@ -25,4 +25,9 @@ public class CmsMonitorServiceImpl implements CmsMonitorService{
     public List<CmsMonitor> getCpuMonitorLast10Mins() {
         return cmsMonitorAction.getLastTenCells();
     }
+
+    @Override
+    public List<CmsMonitor> getCpuMonitorLastHour() {
+        return cmsMonitorAction.getLastHourCells();
+    }
 }

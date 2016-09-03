@@ -15,6 +15,8 @@ public interface CmsMonitorAction extends BaseAction<CmsMonitor>{
 
     public List<CmsMonitor> getLastTenCells();
 
+    public List<CmsMonitor> getLastHourCells();
+
     public int total();
 
 }

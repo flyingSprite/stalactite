@@ -28,7 +28,7 @@
 	
 	<mvc:cors>
 		<mvc:mapping path="/**"
-			allowed-methods="PUT, GET, POST"
+			allowed-methods="PUT, GET, POST, DELETE"
 			max-age="123" />
 	</mvc:cors>
 

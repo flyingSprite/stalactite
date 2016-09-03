@@ -6,6 +6,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collections;
 import java.util.List;
 
 import static org.springframework.data.mongodb.core.query.Query.query;
@@ -20,12 +21,23 @@ import static org.springframework.data.mongodb.core.query.Query.query;
 @Repository("cmsMonitorAction")
 public class CmsMonitorActionAchieve extends BaseActionAchieve<CmsMonitor> implements CmsMonitorAction {
 
+    private List<CmsMonitor> getCells(int number){
+        Sort sort = new Sort(Sort.Direction.DESC, "timestamp");
+        List<CmsMonitor> cmsList = mongoTemplate.find(
+                query(new Criteria()).with(sort).limit(number),
+                CmsMonitor.class);
+        Collections.reverse(cmsList);
+        return cmsList;
+    }
+
     @Override
     public List<CmsMonitor> getLastTenCells() {
-        Sort sort = new Sort(Sort.Direction.DESC, "timestamp");
-        return mongoTemplate.find(
-                query(new Criteria()).with(sort).limit(10),
-                CmsMonitor.class);
+        return this.getCells(10);
+    }
+
+    @Override
+    public List<CmsMonitor> getLastHourCells() {
+        return this.getCells(60);
     }
 
     @Override

@@ -24,4 +24,9 @@ public class CmsMonitorController {
 
         return cmsMonitorService.getCpuMonitorLast10Mins();
     }
+
+    @RequestMapping(value="/cms/hour1", method=RequestMethod.GET)
+    public List<CmsMonitor> getHour() {
+        return cmsMonitorService.getCpuMonitorLastHour();
+    }
 }

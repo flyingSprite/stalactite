@@ -14,4 +14,6 @@ import java.util.List;
 public interface CmsMonitorService {
 
     public List<CmsMonitor> getCpuMonitorLast10Mins();
+
+    public List<CmsMonitor> getCpuMonitorLastHour();
 }

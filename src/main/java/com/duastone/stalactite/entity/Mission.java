@@ -11,16 +11,32 @@ public class Mission {
 	
 	private String id;
 	private String content;
+	private String title;
 	private String type;
-	private String missionType;
-	private String auther;
+	private String author;
 	private String reaper;
 	private String status;
-	private Date createDate;
-	private Date startDate;
-	private Date endDate;
-	
-	public String getId() {
+	private long createDate;
+	private long startDate;
+	private long endDate;
+
+    @Override
+    public String toString() {
+        return "Mission{" +
+                "id='" + id + '\'' +
+                ", content='" + content + '\'' +
+                ", title='" + title + '\'' +
+                ", type='" + type + '\'' +
+                ", author='" + author + '\'' +
+                ", reaper='" + reaper + '\'' +
+                ", status='" + status + '\'' +
+                ", createDate=" + createDate +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                '}';
+    }
+
+    public String getId() {
 		return id;
 	}
 	public void setId(String id) {
@@ -38,17 +54,20 @@ public class Mission {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public String getMissionType() {
-		return missionType;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+		return author;
 	}
-	public void setMissionType(String missionType) {
-		this.missionType = missionType;
-	}
-	public String getAuther() {
-		return auther;
-	}
-	public void setAuther(String auther) {
-		this.auther = auther;
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 	public String getReaper() {
 		return reaper;
@@ -62,22 +81,28 @@ public class Mission {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public Date getCreateDate() {
-		return createDate;
-	}
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
-	public Date getStartDate() {
-		return startDate;
-	}
-	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
-	}
-	public Date getEndDate() {
-		return endDate;
-	}
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
-	}
+
+    public long getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(long createDate) {
+        this.createDate = createDate;
+    }
+
+    public long getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(long startDate) {
+        this.startDate = startDate;
+    }
+
+    public long getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(long endDate) {
+        this.endDate = endDate;
+    }
 }
