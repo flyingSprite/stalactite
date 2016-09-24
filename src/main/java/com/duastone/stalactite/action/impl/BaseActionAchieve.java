@@ -1,5 +1,6 @@
 package com.duastone.stalactite.action.impl;
 
+import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -27,7 +28,7 @@ public class BaseActionAchieve<T> implements BaseAction<T>{
 	public void save(T o){
 		mongoTemplate.save(o);
 	}
-	
+
 	@Override
 	public void save(T o, String collectionName) {
 		mongoTemplate.save(o, collectionName);
@@ -67,8 +68,13 @@ public class BaseActionAchieve<T> implements BaseAction<T>{
 	public void remove(T o, String collectionName){
 		mongoTemplate.remove(o, collectionName);
 	}
-	
-	@Override
+
+    @Override
+    public void removeById(String id, Class<T> o) {
+        mongoTemplate.remove(query(where("_id").is(id)), o);
+    }
+
+    @Override
 	public List<T> findAll(Class<T> classObj, String collectionName) {
 		return mongoTemplate.findAll(classObj, collectionName);
 	}

@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 
 /**
+ * The Label Controler.
+ * Get save update label(s).
  * Created by Fernando on 8/24/16.
  */
 @RestController
@@ -18,7 +20,8 @@ public class LabelController {
     @Resource
     private LabelService labelService;
 
-    @RequestMapping(value="/label", method= RequestMethod.GET)
+    // Get Lalbe list by category id.
+    @RequestMapping(value="/label", method=RequestMethod.GET)
     public Res get(@RequestParam String categoryId){
         Res res;
         try {
@@ -56,4 +59,5 @@ public class LabelController {
 
         return res;
     }
+
 }

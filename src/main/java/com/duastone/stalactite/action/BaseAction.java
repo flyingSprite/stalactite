@@ -17,6 +17,9 @@ public interface BaseAction<T> {
 	
 	public void remove(T o);
 	public void remove(T o, String collectionName);
+
+    // Remove entry by id.
+    public void removeById(String id, Class<T> o);
 	
 	public List<T> findAll(Class<T> classObj);
 	public List<T> findAll(Class<T> classObj, String collectionName);
