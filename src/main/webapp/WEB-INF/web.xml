@@ -15,6 +15,9 @@
     <listener>
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>
+    <listener>
+        <listener-class>com.duastone.stalactite.listeners.SessionLifeListener</listener-class>
+    </listener>
     <filter>
         <filter-name>Set Character Encoding</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

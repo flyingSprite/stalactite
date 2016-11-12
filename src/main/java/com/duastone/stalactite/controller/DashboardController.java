@@ -22,7 +22,7 @@ public class DashboardController {
 	
 	@RequestMapping(value="/dashboard/count", method=RequestMethod.GET)
 	public Count get(){
-		Count count;
+        Count count;
 		try {
 			count = dashboardService.getCount();
 		} catch (Exception e) {

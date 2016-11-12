@@ -32,6 +32,10 @@
 			max-age="123" />
 	</mvc:cors>
 
+    <mvc:interceptors>
+        <bean class="com.duastone.stalactite.interceptors.SessionHandlerInterceptor" />
+    </mvc:interceptors>
+
 	<!-- 定义JSP文件的位置 -->
 	<bean id="jspViewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
