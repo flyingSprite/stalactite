@@ -1,5 +1,7 @@
 package com.duastone.stalactite.entity.api;
 
+import org.springframework.http.HttpStatus;
+
 import java.util.Objects;
 
 /**
@@ -11,6 +13,7 @@ public class Res {
     private int code;
     private String message;
     private Object data;
+    private HttpStatus status;
 
     public Res() {
 
@@ -37,6 +40,7 @@ public class Res {
                 "code=" + code +
                 ", message='" + message + '\'' +
                 ", data=" + data +
+                ", status=" + status +
                 '}';
     }
 
@@ -62,5 +66,13 @@ public class Res {
 
     public void setData(Object data) {
         this.data = data;
+    }
+
+    public HttpStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(HttpStatus status) {
+        this.status = status;
     }
 }
