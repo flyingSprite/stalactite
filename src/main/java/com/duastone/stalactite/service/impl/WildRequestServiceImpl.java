@@ -1,5 +1,6 @@
 package com.duastone.stalactite.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.duastone.stalactite.action.WildRequestAction;
 import com.duastone.stalactite.entity.WildRequest;
 import com.duastone.stalactite.service.WildRequestService;
@@ -37,7 +38,7 @@ public class WildRequestServiceImpl implements WildRequestService{
         int total = wildRequestAction.total(request.getName());
         request.setTotal(total);
 
-        List<Object> objs = wildRequestAction.get(
+        List<JSONObject> objs = wildRequestAction.get(
                 request.getName(),
                 request.getStart(),
                 request.getCount()

@@ -1,5 +1,6 @@
 package com.duastone.stalactite.action.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.duastone.stalactite.action.WildRequestAction;
 import com.mongodb.DBCollection;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -32,23 +33,17 @@ public class WildRequestActionAchieve implements WildRequestAction {
     }
 
     @Override
-    public List<Object> get(String collectionName, int start, int count) {
+    public List<JSONObject> get(String collectionName, int start, int count) {
         count = count == 0 ? 20 : count;
-//        DBCollection collection = this.getCollection(collectionName);
         Criteria criteria = new Criteria();
         Query query = new Query(criteria);
         query.skip(start);
         query.limit(count);
-        List<Object> results = mongoTemplate.find(query, Object.class, collectionName);
-        for (Object res : results) {
-            try {
-                Field field = res.getClass().getDeclaredField("_id");
-                System.out.println(field.get(res).toString());
-                field.set(res, field.get(res).toString());
-            } catch (NoSuchFieldException | IllegalAccessException e) {
-                // Do nothing.
-            }
-        }
+
+        List<JSONObject> results = mongoTemplate.find(query, JSONObject.class, collectionName);
+        results.forEach((item) -> {
+            item.put("_id", String.valueOf(item.get("_id")));
+        });
         return results;
     }
 }

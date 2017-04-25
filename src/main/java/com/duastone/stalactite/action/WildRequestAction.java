@@ -1,5 +1,7 @@
 package com.duastone.stalactite.action;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.util.List;
 
 /**
@@ -9,6 +11,6 @@ public interface WildRequestAction {
 
     public int total(String collectionName);
 
-    public List<Object> get(String collectionName, int start, int count);
+    public List<JSONObject> get(String collectionName, int start, int count);
 
 }
