@@ -1,4 +1,4 @@
-package com.duastone.stalactite.order;
+package com.duastone.stalactite.taskInventory;
 
 import org.apache.commons.io.FileUtils;
 
