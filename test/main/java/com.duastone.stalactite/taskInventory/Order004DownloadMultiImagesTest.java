@@ -6,7 +6,6 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.BiConsumer;
-import java.util.function.Function;
 
 /**
  * Order 4: Donwload multi images, and get the schedule.

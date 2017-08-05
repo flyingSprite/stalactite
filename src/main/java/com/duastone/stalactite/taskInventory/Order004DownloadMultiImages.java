@@ -18,7 +18,6 @@ public class Order004DownloadMultiImages {
     public static void download(Map<String, String> images, String savePath,
                                   BiConsumer<String, Report> consumer) {
 
-        System.out.println(images.size());
         Report report = new Report(images.size());
 
         images.forEach((name, url) -> {
@@ -28,7 +27,6 @@ public class Order004DownloadMultiImages {
             } catch (IOException e) {
                 report.setError(report.getError() + 1);
             } finally {
-//                System.out.println(report);
                 consumer.accept(name, report);
             }
         });
