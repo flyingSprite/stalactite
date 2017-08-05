@@ -16,8 +16,7 @@ import java.security.NoSuchAlgorithmException;
 public class Order009GenerateMD5 {
     private static char[] hexDigits = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
 
-
-    private static String bytesToString(byte[] bytes) {
+    public static String bytesToString(byte[] bytes) {
         int j = bytes.length;
         char str[] = new char[j * 2];
         int k = 0;
@@ -31,7 +30,7 @@ public class Order009GenerateMD5 {
 
     public static String generateMD5(String text) {
         try {
-            MessageDigest md5Digest = MessageDigest.getInstance("md5");
+            MessageDigest md5Digest = MessageDigest.getInstance("MD5");
             byte[] md5Bytes = md5Digest.digest(text.getBytes("utf-8"));
             return bytesToString(md5Bytes);
         } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
