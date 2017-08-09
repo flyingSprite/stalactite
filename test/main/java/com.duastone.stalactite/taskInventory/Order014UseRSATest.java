@@ -3,7 +3,7 @@ package com.duastone.stalactite.taskInventory;
 import org.junit.Test;
 
 /**
- * Order 17: Use RSA testing
+ * Order 14: Use RSA testing
  *
  * Created by Quesle on 10/08/2017.
  */
