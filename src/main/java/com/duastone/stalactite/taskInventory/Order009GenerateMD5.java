@@ -1,5 +1,6 @@
 package com.duastone.stalactite.taskInventory;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.UnsupportedEncodingException;
@@ -36,5 +37,9 @@ public class Order009GenerateMD5 {
         } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
             return "";
         }
+    }
+
+    public static String md5Hex(String text) {
+        return DigestUtils.md5Hex(text);
     }
 }
